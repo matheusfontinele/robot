@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.8.3 on win32)" generated="20200626 20:51:58.745" rpa="false">
+<suite id="s1" name="Api" source="C:\Users\Matheus\Desktop\robot projects\api.robot">
+<test id="s1-t1" name="Teste: APIv">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>api</arg>
+<arg>https://5ebec0beec800c0016043e6f.mockapi.io</arg>
+</arguments>
+<msg timestamp="20200626 20:51:59.007" level="INFO">Creating Session using : alias=api, url=https://5ebec0beec800c0016043e6f.mockapi.io, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200626 20:51:59.007" endtime="20200626 20:51:59.008"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>api</arg>
+<arg>/contact</arg>
+</arguments>
+<assign>
+<var>${RES}</var>
+</assign>
+<msg timestamp="20200626 20:51:59.919" level="INFO">GET Request : url=https://5ebec0beec800c0016043e6f.mockapi.io/contact 
+ path_url=/contact 
+ headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20200626 20:51:59.920" level="INFO">GET Response : url=https://5ebec0beec800c0016043e6f.mockapi.io/contact 
+ status=200, reason=OK 
+ body=[{"id":"31","pais":"Braisl","nome":"Mario","email":"mario@gmail.com"},{"id":"32","pais":"Kyrgyz Republic","nome":"Delphine Sauer","email":"Emerson_Hessel33@hotmail.com"},{"id":"33","pais":"United States Minor Outlying Islands","nome":"Miss Tanner Huels","email":"Ben.Schroeder20@yahoo.com"},{"id":"34","pais":"Ronaldo","nome":"Inglaterra","email":"Ronaldo.Langosh35@hotmail.com"},{"id":"35","pais":"Ronaldo","nome":"Inglaterra","email":"Ronaldo.Langosh35@hotmail.com"},{"id":"36","pais":"Brunei Darussalam","nome":"Reta Considine","email":"Hayley58@yahoo.com"},{"id":"37","pais":"Malawi","nome":"Freddie McLaughlin","email":"Ethyl.Bogan20@gmail.com"},{"id":"38","pais":"Georgia","nome":"River Upton","email":"Lila.Von90@gmail.com"},{"id":"39","pais":"Ronaldo","nome":"Inglaterra","email":"Ronaldo.Langosh35@hotmail.com"},{"id":"40","pais":"Ronaldo","nome":"Inglaterra","email":"Ronaldo.Langosh35@hotmail.com"}] 
+ </msg>
+<msg timestamp="20200626 20:51:59.921" level="INFO">c:\users\matheus\appdata\local\programs\python\python38-32\lib\site-packages\urllib3\connectionpool.py:979: InsecureRequestWarning: Unverified HTTPS request is being made to host '5ebec0beec800c0016043e6f.mockapi.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20200626 20:51:59.922" level="INFO">${RES} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200626 20:51:59.008" endtime="20200626 20:51:59.922"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${RES.json()[0]["id"]}</arg>
+<arg>stream=STDOUT</arg>
+<arg>no_newline=False</arg>
+</arguments>
+<status status="PASS" starttime="20200626 20:51:59.924" endtime="20200626 20:51:59.928"></status>
+</kw>
+<status status="PASS" starttime="20200626 20:51:59.006" endtime="20200626 20:51:59.929" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20200626 20:51:58.751" endtime="20200626 20:51:59.935"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Api">Api</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
